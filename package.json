@@ -8,7 +8,8 @@
         "url": "https://github.com/deployport/pulumi-temporal-k8s-nodejs.git"
     },
     "scripts": {
-        "build": "tsc"
+        "build": "tsc",
+        "prepublishOnly": "npm run build"
     },
     "main": "bin/index.js",
     "types": "bin/index.d.ts",
