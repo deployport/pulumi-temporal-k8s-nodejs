@@ -1,0 +1,44 @@
+{
+    "compilerOptions": {
+        "strict": true,
+        "outDir": "bin",
+        "target": "es2016",
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "declaration": true,
+        "resolveJsonModule": true,
+        "sourceMap": true,
+        "stripInternal": true,
+        "experimentalDecorators": true,
+        "pretty": true,
+        "noFallthroughCasesInSwitch": true,
+        "noImplicitReturns": true,
+        "forceConsistentCasingInFileNames": true,
+        "esModuleInterop": true,
+        "typeRoots": [
+            "node_modules/@types",
+            "types/"
+        ]
+    },
+    "files": [
+        "index.ts",
+        "AdminTools.ts",
+        "Configuration.ts",
+        "MatchLabels.ts",
+        "ServerConfigTemplateMap.ts",
+        "ServerDynamicConfig.ts",
+        "ServerJob.ts",
+        "Stack.ts",
+        "UIService.ts",
+        "ComponentName.ts",
+        "DependsOn.ts",
+        "ResourceOptions.ts",
+        "ServerDeployment.ts",
+        "ServerInitConfigMap.ts",
+        "ServerService.ts",
+        "UIDeployment.ts"
+    ],
+    "ts-node": {
+        "files": true
+    }
+}
