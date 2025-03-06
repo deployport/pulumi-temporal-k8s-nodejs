@@ -7,7 +7,7 @@
         "pulumi",
         "kubernetes",
         "temporal",
-        "workflows",
+        "workflow",
         "infrastructure",
         "automation"
     ],
