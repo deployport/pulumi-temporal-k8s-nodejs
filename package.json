@@ -3,6 +3,14 @@
     "version": "0.1.0",
     "description": "Deploy Temporal Server and UI on Kubernetes using Pulumi Native Provider",
     "author": "bithavoc",
+    "keywords": [
+        "pulumi",
+        "kubernetes",
+        "temporal",
+        "workflows",
+        "infrastructure",
+        "automation"
+    ],
     "license": "MIT",
     "repository": {
         "type": "git",
