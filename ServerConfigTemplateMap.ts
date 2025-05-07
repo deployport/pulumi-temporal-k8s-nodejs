@@ -48,8 +48,8 @@ persistence:
         maxIdleConns: ${config.persistence.default.connPool.maxIdleConns}
         maxConns: ${config.persistence.default.connPool.maxConns}
         tls:
-          enabled: true
-          enableHostVerification: false
+          enabled: {{ .Env.SQL_TLS }}
+          enableHostVerification: {{ .Env.SQL_TLS_ENABLE_HOST_VERIFICATION }}
     visibility:
       sql:
         pluginName: "${pluginDriverName}"
@@ -63,8 +63,8 @@ persistence:
         maxIdleConns: ${config.persistence.visibility.connPool.maxIdleConns}
         maxConns: ${config.persistence.visibility.connPool.maxConns}
         tls:
-          enabled: true
-          enableHostVerification: false
+          enabled: {{ .Env.SQL_TLS }}
+          enableHostVerification: {{ .Env.SQL_TLS_ENABLE_HOST_VERIFICATION }}
 global:
   membership:
     name: temporal

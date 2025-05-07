@@ -79,11 +79,15 @@ export class ServerDeployment {
             },
             {
                 name: "SQL_TLS",
-                value: "true",
+                value: config.persistence.tls.enabled.toString(),
             },
             {
-                name: "SQL_TLS_DISABLE_HOST_VERIFICATION",
-                value: "true",
+                name: "SQL_TLS_DISABLE_HOST_VERIFICATION", // required by init script
+                value: (!config.persistence.tls.enableHostVerification).toString(),
+            },
+            {
+                name: "SQL_TLS_ENABLE_HOST_VERIFICATION", // required by server
+                value: config.persistence.tls.enableHostVerification.toString(),
             }
         ];
         this.deployment = new k8s.apps.v1.Deployment(name, {

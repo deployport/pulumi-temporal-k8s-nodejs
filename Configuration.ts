@@ -26,11 +26,15 @@ export interface DatabaseConn {
 export interface Persistence {
     default: DatabaseConn;
     visibility: DatabaseConn;
-
     username: Input<string>;
     password: Input<string>;
     host: Input<string>;
     port: Input<number>;
+
+    tls: {
+        enabled: Input<boolean>;
+        enableHostVerification: Input<boolean>;
+    };
 }
 
 export type SupportedServerVersion = '1.23.1';
@@ -95,16 +99,20 @@ export class Configuration {
         this.persistence = {
             default: {
                 connPool: connPoll,
-                databaseName: bag.get('databaseDefaultName') || 'temporal'
+                databaseName: bag.get('databaseDefaultName') || 'temporal',
             },
             visibility: {
                 connPool: connPoll,
-                databaseName: bag.get('databaseVisibilityName') || 'temporal_visibility'
+                databaseName: bag.get('databaseVisibilityName') || 'temporal_visibility',
             },
             username: bag.get('databaseUsername') || '',
             password: bag.getSecret('databasePassword') || '',
             host: bag.get('databaseHost') || '',
-            port: bag.getNumber('databasePort') || 5432
+            port: bag.getNumber('databasePort') || 5432,
+            tls: {
+                enabled: bag.getBoolean('databaseTlsEnabled') === undefined ? true : bag.getBoolean('databaseTlsEnabled') === true, // default is true if missing
+                enableHostVerification: bag.getBoolean('databaseTlsEnableHostVerification') === true // default is false
+            },
         };
         this.frontend = {
             membershipPort: 6933,
